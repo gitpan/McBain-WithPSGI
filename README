@@ -2,7 +2,7 @@ NAME
     McBain::WithPSGI - Load a McBain API as a RESTful PSGI web service
 
 VERSION
-    version 1.000000
+    version 1.001000
 
 SYNOPSIS
             # write your API as you normally would, and create
@@ -34,6 +34,16 @@ DESCRIPTION
     method as its value. For example, if method "GET:/divide" in topic
     "/math" returns an integer (say 7), then the client will get the JSON "{
     "GET:/math/divide": 7 }".
+
+  SUPPORTED HTTP METHODS
+    This runner support all methods natively supported by McBain. That is:
+    "GET", "PUT", "POST", "DELETE" and "OPTIONS". To add support for "HEAD"
+    requests, use Plack::Middleware::Head.
+
+    The "OPTIONS" method is special. It returns a list of all HTTP methods
+    allowed by a specific route (in the "Allow" header). The response body
+    will be the same hash-ref returned by "McBain" for "OPTIONS" requests,
+    JSON encoded.
 
 METHODS EXPORTED TO YOUR API
     None.

@@ -5,6 +5,7 @@ author:
 build_requires:
   HTTP::Request: 0
   McBain: 0
+  Plack: 1.0029
   Plack::Test: 0
   Test::More: 0
   lib: 0
@@ -28,4 +29,4 @@ requires:
 resources:
   homepage: https://github.com/ido50/McBain-WithPSGI
   repository: https://github.com/ido50/McBain-WithPSGI.git
-version: 1.000000
+version: 1.001000

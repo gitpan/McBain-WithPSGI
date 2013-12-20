@@ -30,11 +30,12 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "HTTP::Request" => 0,
     "McBain" => 0,
+    "Plack" => "1.0029",
     "Plack::Test" => 0,
     "Test::More" => 0,
     "lib" => 0
   },
-  "VERSION" => "1.000000",
+  "VERSION" => "1.001000",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -46,6 +47,7 @@ my %FallbackPrereqs = (
   "HTTP::Request" => 0,
   "JSON" => 0,
   "McBain" => 0,
+  "Plack" => "1.0029",
   "Plack::Component" => 0,
   "Plack::Request" => 0,
   "Plack::Test" => 0,
