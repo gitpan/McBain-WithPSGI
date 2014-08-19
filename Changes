@@ -1,5 +1,9 @@
 Revision history for McBain-WithPSGI
 
+2.000000  2014-08-19 18:55:03+03:00 Asia/Jerusalem
+	- Updated documentation and test as McBain no longer uses the MCBAIN_WITH
+	  environment variable for loading a runner module.
+
 1.001000  2013-12-20 15:41:28 Asia/Jerusalem
 	- Added support for OPTIONS requests
 	- Added Plack v1.0029 as a test requirement since I'm using its

@@ -1,20 +1,15 @@
 NAME
     McBain::WithPSGI - Load a McBain API as a RESTful PSGI web service
 
-VERSION
-    version 1.001000
-
 SYNOPSIS
             # write your API as you normally would, and create
             # a simple psgi file:
 
             #!/usr/bin/perl -w
 
-            BEGIN { $ENV{MCBAIN_WITH} = 'WithPSGI'; }
-
             use warnings;
             use strict;
-            use MyAPI;
+            use MyAPI -withPSGI;
 
             my $app = MyAPI->to_app;
 
@@ -66,9 +61,7 @@ METHODS REQUIRED BY MCBAIN
     Formats exceptions into JSON and returns a standard PSGI array-ref.
 
 CONFIGURATION AND ENVIRONMENT
-    No configuration files are required. To tell McBain to use this runner
-    module, the "MCBAIN_WITH" environment variable must be set to
-    "WithPSGI". See the "SYNOPSIS" for an example.
+    No configuration files are required.
 
 DEPENDENCIES
     "McBain::WithPSGI" depends on the following CPAN modules:

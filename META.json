@@ -4,7 +4,7 @@
       "Ido Perlmuter <ido@ido50.net>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.132830",
+   "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "perl_5"
    ],
@@ -17,13 +17,6 @@
       "configure" : {
          "requires" : {
             "ExtUtils::MakeMaker" : "6.30"
-         }
-      },
-      "develop" : {
-         "requires" : {
-            "Pod::Coverage::TrustPod" : "0",
-            "Test::Pod" : "1.41",
-            "Test::Pod::Coverage" : "1.08"
          }
       },
       "runtime" : {
@@ -50,13 +43,16 @@
    },
    "release_status" : "stable",
    "resources" : {
-      "homepage" : "https://github.com/ido50/McBain-WithPSGI",
+      "bugtracker" : {
+         "web" : "https://github.com/ido50/McBain-WithPSGI/issues"
+      },
+      "homepage" : "https://metacpan.org/pod/McBain::WithPSGI",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/ido50/McBain-WithPSGI.git",
+         "url" : "git://github.com/ido50/McBain-WithPSGI.git",
          "web" : "https://github.com/ido50/McBain-WithPSGI"
       }
    },
-   "version" : "1.001000"
+   "version" : "2.000000"
 }
 
