@@ -21,7 +21,7 @@ my %WriteMakefileArgs = (
   "NAME" => "McBain::WithPSGI",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "JSON" => 0,
+    "JSON::MaybeXS" => 0,
     "Plack::Component" => 0,
     "Plack::Request" => 0,
     "strict" => 0,
@@ -29,13 +29,14 @@ my %WriteMakefileArgs = (
   },
   "TEST_REQUIRES" => {
     "HTTP::Request" => 0,
+    "JSON" => 0,
     "McBain" => 0,
     "Plack" => "1.0029",
     "Plack::Test" => 0,
     "Test::More" => 0,
     "lib" => 0
   },
-  "VERSION" => "2.001000",
+  "VERSION" => "2.001001",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -46,6 +47,7 @@ my %FallbackPrereqs = (
   "Carp" => 0,
   "HTTP::Request" => 0,
   "JSON" => 0,
+  "JSON::MaybeXS" => 0,
   "McBain" => 0,
   "Plack" => "1.0029",
   "Plack::Component" => 0,

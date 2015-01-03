@@ -6,14 +6,14 @@ use warnings;
 use strict;
 
 use Carp;
-use JSON;
+use JSON::MaybeXS qw/JSON/;
 use Plack::Request;
 use Plack::Component;
 
-our $VERSION = "2.001000";
+our $VERSION = "2.001001";
 $VERSION = eval $VERSION;
 
-my $json = JSON->new->utf8->convert_blessed;
+my $json = JSON->new->utf8->allow_blessed->convert_blessed;
 
 =head1 NAME
  
@@ -59,12 +59,12 @@ C<McBain> for C<OPTIONS> requests, JSON encoded.
 
 =head2 CAVEATS AND CONSIDERATIONS
 
-The C<HTTP> protocol does not allow C<GET> requests to have content, so your C<GET> routes will
+The HTTP protocol does not allow C<GET> requests to have content, so your C<GET> routes will
 not be able to receive parameters from a request's JSON body as all other methods do.
-If your get requests I<must> get parameters (for example, a route that returns a list of objects
-with support for pagination), C<McBain::WithPSGI> supports parameters from the query string. They
-will be validated like all parameters, and they can be used in non-C<GET> requests too. Note that
-they take precedence over body parameters.
+If your C<GET> routes I<must> receive parameters (for example, you might have a route that
+returns a list of objects with support for pagination), C<McBain::WithPSGI> supports parameters
+from the query string. They will be validated like all parameters, and they can be used in
+non-C<GET> requests too. Note that they take precedence over body parameters.
 
 The downside to this is that the parameters cannot be complex structures, though if the query string
 defines a certain key several times, its generated value will be an array reference. For example,
@@ -82,11 +82,11 @@ let's look at the following route:
 	);
 
 This route isn't particularly interesting, as it simply returns the parameters it receives. It does,
-however, enforces the existance of the C<some_string> parameter, and expects C<some_array> to be an
+however, enforce the existence of the C<some_string> parameter, and expects C<some_array> to be an
 array reference of at least 2 items. A request to C</params_from_query?some_string=this_is_my_string&some_array=Hello&some_array=World> will yield the
 following result:
 
-	{ some_string => 'this_is_my_string', some_array => ['Hello', 'World'] }
+	{ "some_string": "this_is_my_string", "some_array": ["Hello", "World"] }
 
 =head1 METHODS EXPORTED TO YOUR API
 
@@ -185,7 +185,7 @@ C<McBain::WithPSGI> depends on the following CPAN modules:
 
 =item * L<Carp>
 
-=item * L<JSON>
+=item * L<JSON::MaybeXS>
  
 =item * L<Plack>
  
@@ -235,7 +235,7 @@ Ido Perlmuter <ido@ido50.net>
  
 =head1 LICENSE AND COPYRIGHT
  
-Copyright (c) 2013, Ido Perlmuter C<< ido@ido50.net >>.
+Copyright (c) 2013-2015, Ido Perlmuter C<< ido@ido50.net >>.
  
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself, either version

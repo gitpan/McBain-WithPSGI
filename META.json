@@ -20,9 +20,12 @@
          }
       },
       "runtime" : {
+         "recommends" : {
+            "JSON::XS" : "3.0113"
+         },
          "requires" : {
             "Carp" : "0",
-            "JSON" : "0",
+            "JSON::MaybeXS" : "0",
             "Plack::Component" : "0",
             "Plack::Request" : "0",
             "perl" : "5.006",
@@ -33,6 +36,7 @@
       "test" : {
          "requires" : {
             "HTTP::Request" : "0",
+            "JSON" : "0",
             "McBain" : "0",
             "Plack" : "1.0029",
             "Plack::Test" : "0",
@@ -53,6 +57,6 @@
          "web" : "https://github.com/ido50/McBain-WithPSGI"
       }
    },
-   "version" : "2.001000"
+   "version" : "2.001001"
 }
 
